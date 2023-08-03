@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+   
+    <div class="top mt-5 py-3" style="background: rgb(174, 118, 214);">
+    <h1 style="text-align: center;" > Welcome {{ user.username }} to our company. </h1>
+    </div>
+<div class="container my-10">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card py-5 px-5">
+                <h3> Name : {{ user.username }} </h3>
+                <br>
+                <h3> Email: {{ user.email }} </h3>
+                <br>
+                <h3> Age : {{ user.Age }} years</h3>
+                <br>
+                <h3> Address: {{ user.Address }} </h3>
+                <br>
+                <h3> Salary: {{ user.Salary }} tk</h3>
+           
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="container">
+                <div class="addsale mt-5">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+
+                        <h3>{{ saleform.as_p }}</h3>
+                        <br>
+                        <input type="submit" class="btn btn-info">
+                    
+                    </form>
+    
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box py-5" style="text-align:center;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;">
+                            <h3><b>Current Sale : {{ price.total_sale }} tk </b></h3>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box py-5" style="text-align:center;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;">
+                            <h3><b>Bonus  :  {{ bonus_user.total_bonus }} tk</b></h3>
+                            <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div></div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    
+          
+    </div>
+  
+            
+<br>
+<br>
+
+</div>
+
+</div>
+{% endblock %}

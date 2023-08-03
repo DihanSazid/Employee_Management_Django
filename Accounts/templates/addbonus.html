@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="top mt-5 py-3" style="background: rgb(117, 197, 202);">
+    <h1 style="text-align: center;" > Admin Panel </h1>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" >
+            <br>
+            <h1>Add Bonus</h1>
+             <br>
+             <br>
+             <div class="container">
+                 <form method="POST" class="uniForm">
+                     {% csrf_token %}
+                     <h5> Select the employee  :    {{  form.employee }}</h5>
+                     <br>
+                     <h5><i>How much you want to add as bonus: <br> {{ form.Bonus }} </i></h5>      
+                     <br>
+                     <br>
+                     <input type="submit" class="btn btn-warning btn-lg">
+                 
+                 </form>
+             </div>
+         </div>
+
+         <div class="col-md-6 py-5">
+            <table class="table" style="font-size: 20px;">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Bonus Added</th>
+                    <th scope="col">Date</th>
+                  
+                  </tr>
+                </thead>
+                {% for p in bonus %}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{ p.employee }}</th>
+                    <td>{{ p.Bonus }}</td>
+                    <td>{{ p.date }}</td>
+                  
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+         </div>
+
+
+    </div>
+
+</div>
+<br>
+<br>
+<h1 style="text-align: center;"><a href="{% url 'admin_panel' %}" class="btn btn-primary btn-lg">Back</a></h1>
+{% endblock %}

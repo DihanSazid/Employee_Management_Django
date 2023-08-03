@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="top mt-5 py-3" style="background: rgb(11, 3, 31);color:whitesmoke">
+  <h1 style="text-align: center;" > Admin Panel </h1>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      
+        <br>
+        <br>
+        <div class="top mt-2 py-1" style="background: rgb(236, 233, 179);">
+          <h1 style="text-align: center;" > Employee Details </h1>
+          </div>
+          <br>
+          <br>
+    <table class="table" style="font-size: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        {% for i in employee %}
+        <tbody>
+          <tr>
+            <th scope="row">{{ i.id }}</th>
+            <td>{{ i.username }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.Age }}</td>
+            <td>{{ i.Address }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+  </div>
+    <div class="col-md-6">
+      <br>
+      <br>
+      <div class="top mt-2 py-1" style="background: rgb(224, 233, 203);">
+        <h1 style="text-align: center;" > Employee Performance </h1>
+        </div>
+        <br>
+        <br>
+      <table class="table" style="font-size: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Total Sale (taka)</th>
+      
+        
+          </tr>
+        </thead>
+       {% for h in employee_sale %}
+        <tbody>
+          <tr>
+            <th scope="row">{{ h.username }}</th>
+            <th scope="row">{{ h.total_sale }}</th>
+      
+          </tr>
+        </tbody>
+      {% endfor %}
+      </table>
+
+
+    
+    </div>
+  </div>
+</div>
+    
+<br>
+<br>
+<br>
+<h1 style="text-align: center;"><a href="{% url 'addbonus' %}" class="btn btn-danger btn-lg">Add bonus</a></h1>
+{% endblock %}
+
